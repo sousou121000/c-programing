@@ -1,0 +1,172 @@
+<!DOCTYPE html> 
+<html lang="ja"> 
+    <head> 
+        <meta charest="UTF-8"> 
+        <title>DEATH MAZE</title> 
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body background=""> 
+        <h1 align="center">DEATH MAZE</h1>
+        <h4><a href="https://cautious-space-yodel-97w47xjp57r4hpvjj-5500.app.github.dev/"><u>>プレイする</u></a></h4>
+        <h2>あらすじ</h2>
+        <p>俺は幼馴染のRANと遊園地に来ていた。そしたら怪しい取引現場目撃してしまった。
+            <br>
+            それを見るのに夢中になっていると背後からくるもう一人の仲間に気づかず殴られてしまった。
+            <br>
+            俺はそいつに怪しい薬を飲まされてしまい気が付いたらデスゲームに参加させられていた！
+            <br>
+            <big>"奴"</big>に見つからないようにボタンを見つけこの場所から脱出しないと...
+        </p>
+        <h2>操作方法</h2>
+        <ul>
+          <li>W：前移動</li>
+          <li>S：後移動</li>
+          <li>A：左移動</li>
+          <li>D：右移動</li>
+        </ul>
+
+        <div class="container">
+
+<h8>レビュー</h8>
+
+<input type="text" id="name" placeholder="名前">
+
+<select id="rating">
+    <option value="5">★★★★★</option>
+    <option value="4">★★★★☆</option>
+    <option value="3">★★★☆☆</option>
+    <option value="2">★★☆☆☆</option>
+    <option value="1">★☆☆☆☆</option>
+</select>
+
+<input type="password" id="password" placeholder="削除用パスワード">
+
+<textarea id="reviewText" placeholder="レビューを書いてください"></textarea>
+
+<br>
+
+<button onclick="addReview()">投稿</button>
+
+<div id="average">平均評価：0.0 ⭐</div>
+
+<div id="reviews"></div>
+
+</div>
+
+<script>
+
+let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+function saveReviews(){
+    localStorage.setItem("reviews", JSON.stringify(reviews));
+}
+
+function updateAverage(){
+
+    if(reviews.length === 0){
+        document.getElementById("average").innerHTML =
+        "平均評価：0.0 ⭐";
+        return;
+    }
+
+    let total = 0;
+
+    reviews.forEach(review=>{
+        total += review.rating;
+    });
+
+    let avg = (total / reviews.length).toFixed(1);
+
+    document.getElementById("average").innerHTML =
+    `平均評価：${avg} ⭐`;
+}
+
+function displayReviews(){
+
+    const reviewsDiv =
+    document.getElementById("reviews");
+
+    reviewsDiv.innerHTML = "";
+
+    reviews.forEach((review,index)=>{
+
+        const div = document.createElement("div");
+
+        div.className = "review";
+
+        div.innerHTML = `
+            <h3>${review.name}</h3>
+            <p>${"⭐".repeat(review.rating)}</p>
+            <ppap>${review.text}</ppap>
+            <button class="delete-btn"
+            onclick="deleteReview(${index})">
+            削除
+            </button>
+        `;
+
+        reviewsDiv.appendChild(div);
+
+    });
+
+    updateAverage();
+}
+
+function addReview(){
+
+    const name =
+    document.getElementById("name").value.trim();
+
+    const rating =
+    Number(document.getElementById("rating").value);
+
+    const password =
+    document.getElementById("password").value;
+
+    const text =
+    document.getElementById("reviewText").value.trim();
+
+    if(name === "" || password === "" || text === ""){
+        alert("すべて入力してください");
+        return;
+    }
+
+    reviews.push({
+        name:name,
+        rating:rating,
+        password:password,
+        text:text
+    });
+
+    saveReviews();
+    displayReviews();
+
+    document.getElementById("name").value="";
+    document.getElementById("password").value="";
+    document.getElementById("reviewText").value="";
+}
+
+function deleteReview(index){
+
+    const input =
+    prompt("削除用パスワードを入力してください");
+
+    if(input === reviews[index].password){
+
+        reviews.splice(index,1);
+
+        saveReviews();
+
+        displayReviews();
+
+    }else{
+
+        alert("パスワードが違います");
+
+    }
+}
+
+displayReviews();
+
+</script>
+
+    </body>
