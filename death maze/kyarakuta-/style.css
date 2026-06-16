@@ -1,0 +1,179 @@
+/* 全体の背景とフォント設定 */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #000000;
+  color: #000000;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ヘッダータグの装飾 */
+h1 {
+  font-size: 5.5em;
+  color: #ff0000;
+  border-bottom: 3px solid #f80000;
+  padding-bottom: 10px;
+}
+
+h8 {
+  font-size: 5.5em;
+  color: #eeff00;
+  border-bottom: 3px solid #eeff00;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 3em;
+  color: #1684f1;
+  margin-top: 30px;
+  border-left: 5px solid #66aaff;
+  padding-left: 10px;
+}
+
+h4 {
+  font-size: 2em;
+  color: #1684f1;
+  margin-top: 30px;
+  padding-left: 10px;
+}
+
+h3, h6 {
+  font-weight: normal;
+  color: #000000;
+}
+
+/* strongタグとfontタグの表示 */
+strong {
+  font-weight: bold;
+  color: #cc0000;
+}
+
+font {
+  font-style: italic;
+}
+
+/* aリンクの装飾 */
+a {
+  color: #006bb3;
+  text-decoration: none;
+}
+/* pリンクの装飾 */
+p {
+  color: #ffffff;
+  font-size: 1.5em;
+}
+ppap {
+  color: #000000;
+  font-size: 1.5em;
+}
+big {
+  color: #ff0000;
+  font-size: 2em;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ボタンの装飾 */
+button {
+  padding: 60px 40px;
+  font-size: 35px;
+  background-color: #1d3480;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #000641;
+}
+
+/* 入力欄のスタイル */
+input[type="number"],
+input[type="color"] {
+  padding: 5px;
+  font-size: 1em;
+  margin-right: 10px;
+}
+
+/* 結果表示のスタイル */
+#result {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #d63384;
+}
+
+/* リストのスタイル */
+ol, ul {
+  margin-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+  color: #ffffff;
+    font-size: 2.5em;
+}
+
+/* 画像に余白と枠線 
+img {
+  margin-top: 10px;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}*/
+
+/* pre/code 用：将来使う時に備えて */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: monospace;
+  color: #d63384;
+}
+div {
+  color: #ffffff;
+}
+.container{
+    max-width:600px;
+    margin:auto;
+}
+
+input, textarea, select{
+    width:90%;
+    padding:10px;
+    margin:5px;
+}
+
+button2{
+    padding:10px 20px;
+    margin:5px;
+    cursor:pointer;
+}
+
+.review{
+    background:rgb(255, 255, 255);
+    padding:15px;
+    margin-top:10px;
+    border-radius:10px;
+    text-align:left;
+    box-shadow:0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.delete-btn{
+    background:red;
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+
+#average{
+    font-size:20px;
+    font-weight:bold;
+    margin:15px;
+}
